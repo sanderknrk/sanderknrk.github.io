@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<title>hei</title> 
+
+<body>
+
+   <script> 
+      function copyToClipboard() { 
+	  
+		  const textarea = document.createElement('textarea');
+		  textarea.readOnly = true;
+		  textarea.value = "https://www.nrk.no/video/25bf744a-101a-4fd4-9c8a-f3e678b668f4";
+		  document.body.appendChild(textarea);
+		  textarea.select();
+		  
+		  try {
+			document.execCommand('copy');
+		  } catch (err) {
+			console.log(err);
+			document.getElementById("result").innerHTML = err; 
+		  } finally {
+			document.body.removeChild(textarea);
+		  }
+		
+      } 
+   </script>
+      
+   <button onclick = "copyToClipboard()">copy to clipboard</button> 
+   
+   <p> 
+      <div id = "result"> </div> 
+   </p> 
+   
+</body> 
+</html>
